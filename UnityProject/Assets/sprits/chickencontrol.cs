@@ -6,30 +6,31 @@ public class chickencontrol : MonoBehaviour
 
 {
 
-    Animator Chicken_Anime;
-    bool 跑步開關;
+    Animator myAnimator;
 
     void Start()
 
     {
-        Chicken_Anime = gameObject.GetComponent<Animator>();
-        跑步開關 = false;
+        myAnimator = gameObject.GetComponent<Animator>();
     }
-
 
     void Update()
 
     {
         if(Input.GetKeyDown(KeyCode.E))
         {
-            Chicken_Anime.SetTrigger("吃飯觸發器");
+            myAnimator.SetTrigger("吃飯觸發器");
+            Debug.Log("123");
         }
         
         if(Input.GetKey(KeyCode.R))
-        {
-            Chicken_Anime.SetBool("跑步開關", true);
-        }
 
-     
+        {
+            myAnimator.SetBool("跑步開關", true);
+        }
+        else
+        {
+            myAnimator.SetBool("跑步開關", false);
+        }
     }
 }
